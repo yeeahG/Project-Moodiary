@@ -1,0 +1,22 @@
+.tile {
+    display: flex;
+}
+
+
+.title .logo {
+    position: absolute;
+    width: 200px;
+    left: 10%;
+    top: 10%;
+}
+
+@media (max-width: 680px) {
+    .title .logo {
+        width: 140px;
+    }
+}
+@media (min-width: 1000px) {
+    .title .logo {
+        left: 25%;
+    }
+}
