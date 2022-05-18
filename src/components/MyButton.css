@@ -1,4 +1,5 @@
 .MyButton {
+    display: flex;
     cursor: pointer;
     border: none;
     border-radius: 5px;

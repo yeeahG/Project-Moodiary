@@ -4,7 +4,6 @@ import New from './pages/New';
 import Edit from './pages/Edit';
 import Diary from './pages/Diary';
 
-import RouteTest from './components/RouteTest';
 import './App.css';
 import MyButton from './components/MyButton';
 import Title from './components/Title';
@@ -13,12 +12,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-
         <Title />
         <MyButton 
           text={'Button'} 
           onClick={() => alert("버튼 클릭")} 
           type={"positive"} 
+        />
+        <MyButton 
+          text={'Button'} 
+          onClick={() => alert("버튼 클릭")} 
+          type={"negative"} 
+        />
+        <MyButton 
+          text={'Button'} 
+          onClick={() => alert("버튼 클릭")} 
         />
 
         <Routes>
@@ -27,8 +34,6 @@ function App() {
           <Route path='/edit' element={<Edit />} />
           <Route path='/diary/:id' element={<Diary />} />
         </Routes>
-
-<RouteTest />
       </div>
     
     </BrowserRouter>

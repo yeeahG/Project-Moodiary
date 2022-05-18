@@ -6,8 +6,8 @@
 .title .logo {
     position: absolute;
     width: 200px;
-    left: 10%;
-    top: 10%;
+    left: 12%;
+    top: 15%;
 }
 
 @media (max-width: 680px) {
@@ -17,6 +17,6 @@
 }
 @media (min-width: 1000px) {
     .title .logo {
-        left: 25%;
+        left: 26%;
     }
 }
