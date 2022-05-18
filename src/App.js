@@ -7,9 +7,13 @@ import Diary from './pages/Diary';
 import './App.css';
 import MyButton from './components/MyButton';
 import Title from './components/Title';
+import Header from './components/Header';
 
 function App() {
   return (
+    <div>
+      <Header />
+    
     <BrowserRouter>
       <div className="App">
         <Title />
@@ -37,6 +41,7 @@ function App() {
       </div>
     
     </BrowserRouter>
+  </div>
   );
 }
 

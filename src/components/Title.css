@@ -10,6 +10,12 @@
     top: 15%;
 }
 
+.title__name {
+    color: white;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
 @media (max-width: 680px) {
     .title .logo {
         width: 140px;
