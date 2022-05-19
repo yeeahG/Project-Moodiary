@@ -1,12 +1,17 @@
 import React from 'react'
+import Title from '../components/Title'
 import './Home.css'
 
 const Home = () => {
   return (
-    <div className='home__container'>
-      Home
-      
-    </div>
+    <>
+      <Title/>
+      <div className='home__container'>
+        List
+        
+      </div>
+
+    </>
   )
 }
 

@@ -13,7 +13,7 @@ body {
 .App {
   text-align: center;
   padding: 20px;
-  font-family: 'Noto Serif KR', serif;
+  /* font-family: 'Noto Serif KR', serif;*/
   font-family: 'Nanum Gothic', sans-serif;
   background-color: #f3c5d2; /*732bbe*/
   /* 확장 그라데이션 PNG는 588ku에 의해 설계되었고,에서 유래되었다. <a href="https://kor.pngtree.com"> Pngtree.com</a> */
@@ -48,4 +48,17 @@ body {
 #root {
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) opx 7px 29px 0px;
+}
+
+
+/*My button */
+.MyButton {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-size: 18px;
+  white-space: nowrap;
+  width: 100px;
+  margin: 0 auto;
 }

@@ -12,11 +12,19 @@ import Header from './components/Header';
 function App() {
   return (
     <div>
-      <Header />
+      <Header 
+        headText={"App"}
+        leftChild={
+          <MyButton text={"left"} onClick={() => alert("left clicked")} />
+        }
+        rightChild={
+          <MyButton text={"right"} onClick={() => alert("right clicked")} />
+        }
+      />
     
-    <BrowserRouter>
+      <BrowserRouter>
       <div className="App">
-        <Title />
+        {/* <Title /> */}
         <MyButton 
           text={'Button'} 
           onClick={() => alert("버튼 클릭")} 
@@ -40,8 +48,8 @@ function App() {
         </Routes>
       </div>
     
-    </BrowserRouter>
-  </div>
+      </BrowserRouter>
+    </div>
   );
 }
 

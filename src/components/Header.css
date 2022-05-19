@@ -1,4 +1,31 @@
 .header__container {
-    height: 30px;
-    border: 1px solid black;
-  }
+  display: flex;
+  height: 30px;
+  border: 1px solid black;
+  padding: 5px 0;
+  align-items: center;
+}
+
+.header__container > div {
+  display: flex;
+}
+
+.header__container .head_text {
+  width: 50%;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.header__container .head_btn_left {
+  width: 25%;
+  justify-content: start;
+}
+
+.header__container .head_btn_right {
+  width: 25%;
+  justify-content: end;
+}
+
+.header__container button {
+  font-family: 'Noto Serif KR', serif;
+}
