@@ -15,6 +15,22 @@ const sortOptionList = [
 const DiaryList = ( {diaryList}) => {
     const [sortType, setSortType] = useState('latest');
 
+    const getProcessedDiaryList = () => {
+        //Diay리스트들이 지금 {,} 객체형태로 되어있어서
+        //비교함수를 짜줘야한다
+        const compare = (a,b) => {
+            if(sortType === 'latest') {
+                return parseInt(b.date) - parseInt(a.date);
+            } else {
+                return parseInt(a.date) - parseInt(b.date);
+            }
+        }
+
+        const copyList = JSON.parse(JSON.stringify(diaryList));
+        const sortedList = copyList.sort(compare);
+        return sortedList;
+    }
+
   return (
     <div>
         <ControlMenu 
@@ -22,7 +38,7 @@ const DiaryList = ( {diaryList}) => {
             onChange={setSortType}
             optionList={sortOptionList}
         />
-        {diaryList.map((it) => 
+        {getProcessedDiaryList().map((it) => 
             <div key={it.id}>{it.content}</div>
         )}
     </div>
