@@ -3,7 +3,7 @@
 
 body {
   display: flex;
-  background-color: #b5cbd6;
+  background-color: #b5cbd6; /*b5cbd6 3E5EF3 #0A174E 019736*/
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -15,7 +15,7 @@ body {
   padding: 20px;
   /* font-family: 'Noto Serif KR', serif;*/
   font-family: 'Nanum Gothic', sans-serif;
-  background-color: #f3c5d2; /*732bbe*/
+  background-color: #ffa3b2; /*732bbe f3c5d2*/
   /* 확장 그라데이션 PNG는 588ku에 의해 설계되었고,에서 유래되었다. <a href="https://kor.pngtree.com"> Pngtree.com</a> */
   background-image: url("/public/images/bg.png"); 
   background-position: center;
