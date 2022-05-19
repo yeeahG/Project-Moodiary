@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ControlMenu from './ControlMenu';
 import MyButton from './MyButton';
 import './DiaryList.css';
+import DiaryItem from './DiaryItem';
 
 //Diary를 정렬
 /*
@@ -86,7 +87,8 @@ const DiaryList = ( {diaryList}) => {
 
 
         {getProcessedDiaryList().map((it) => 
-            <div key={it.id}>{it.content} {it.emotion}</div>
+            /* <div key={it.id}>{it.content} {it.emotion}</div>*/
+            <DiaryItem key={it.id} {...it} />
         )}
     </div>
   )
