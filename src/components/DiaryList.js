@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import ControlMenu from './ControlMenu';
+import MyButton from './MyButton';
+import './DiaryList.css';
 
 //Diary를 정렬
 /*
@@ -19,10 +22,12 @@ const filterOptionList = [
 ]
 
 const DiaryList = ( {diaryList}) => {
+    const navigate = useNavigate();
     //Latest,Oldest
     const [sortType, setSortType] = useState('latest');
     //Emotion
     const [filter,setFilter] = useState('all');
+
 
     const getProcessedDiaryList = () => {
         //Diay리스트들이 지금 {,} 객체형태로 되어있어서
@@ -54,17 +59,31 @@ const DiaryList = ( {diaryList}) => {
     }
 
   return (
-    <div>
-        <ControlMenu 
-            value={sortType} 
-            onChange={setSortType}
-            optionList={sortOptionList}
-        />
-        <ControlMenu 
-            value={filter}
-            onChange={setFilter}
-            optionList={filterOptionList}
-        />
+    <div className='list__container'>
+
+        <div className='menu__wrapper'>
+            <div className='left__col'>
+                <ControlMenu 
+                    value={sortType} 
+                    onChange={setSortType}
+                    optionList={sortOptionList}
+                />
+                <ControlMenu 
+                    value={filter}
+                    onChange={setFilter}
+                    optionList={filterOptionList}
+                />
+            </div>
+            <div className='right__col'>
+                <MyButton 
+                    type={'positive'} 
+                    text={'Write new Moo'} 
+                    onClick={() => navigate("/new")} 
+                />
+            </div>
+        </div>
+
+
 
         {getProcessedDiaryList().map((it) => 
             <div key={it.id}>{it.content} {it.emotion}</div>

@@ -1,0 +1,30 @@
+.list__container {
+    
+}
+
+.menu__wrapper {
+    margin: 20px 30px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu__wrapper .left__col {
+    display: flex;
+}
+
+.menu__wrapper .right__col {
+    flex-grow: 1;
+}
+
+.menu__wrapper .right__col button {
+    width: 100%;
+}
+
+/*CONTROL MENU*/
+.control__container {
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
