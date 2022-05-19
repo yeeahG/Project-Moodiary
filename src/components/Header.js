@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './Header.css'
 import MyButton from './MyButton';
 
-const Header = () => {
+const Header = ({headText, leftChild, rightChild}) => {
+  /*
   const [curDate, setCurDate] = useState(new Date());
   console.log(curDate);
   
@@ -15,14 +16,20 @@ const Header = () => {
   const decreaseMonth = () => {
     setCurDate(new Date(curDate.getFullYear(), curDate.getMonth()-1, curDate.getDate()))
   }
+  */
+ console.log(leftChild);
 
 
   return (
   <div className='header__container'>
+    {/*
     <MyButton text={'<'} onClick={decreaseMonth}/>
     {headText} 
     <MyButton text={'>'} onClick={increaseMonth}/>
-  
+  */}
+  {leftChild}
+  {headText}
+  {rightChild}
   </div>
   )
 }

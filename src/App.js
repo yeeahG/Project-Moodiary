@@ -113,7 +113,8 @@ function App() {
       onCreate, onEdit, onRemove,
     }}>
 
-    <Header
+
+    {/*<Header
       // headText={"App"}
       // leftChild={
       //   <MyButton text={"left"} onClick={() => alert("left clicked")} />
@@ -121,7 +122,7 @@ function App() {
       // rightChild={
       //   <MyButton text={"right"} onClick={() => alert("right clicked")} />
       // }
-    />
+    />*/}
       
     <BrowserRouter>
       <div className="App">
