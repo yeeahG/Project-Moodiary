@@ -53,6 +53,8 @@ const Home = () => {
 
   return (
     <>
+      <Title/>
+      
       <div>
         <Header 
           headText={headText}
@@ -61,7 +63,6 @@ const Home = () => {
         />
       </div>
 
-      <Title/>
 
       <div className='home__container'>
         List

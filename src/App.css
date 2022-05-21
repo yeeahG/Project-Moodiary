@@ -3,7 +3,9 @@
 
 body {
   display: flex;
-  background-color: #b5cbd6; /*b5cbd6 3E5EF3 #0A174E 019736*/
+  background-color: #F95700;
+  /* #2BAE66 #F95700 */
+  /* background-color: #ffff; b5cbd6 3E5EF3 #0A174E 019736 */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -15,14 +17,14 @@ body {
   padding: 20px;
   /* font-family: 'Noto Serif KR', serif;*/
   font-family: 'Nanum Gothic', sans-serif;
-  background-color: #ffa3b2; /*732bbe f3c5d2*/
+  background-color: #fcf2e565; 
+  /* 732bbe f3c5d2 */
   /* 확장 그라데이션 PNG는 588ku에 의해 설계되었고,에서 유래되었다. <a href="https://kor.pngtree.com"> Pngtree.com</a> */
-  background-image: url("/public/images/bg.png"); 
+  /* background-image: url("/public/images/bg.png");  */
   background-position: center;
   background-size: auto;
   border: 1px solid black;
-
-  /*min-height: 100vh;*/
+  height: 70%;
 }
 
 .App .title {
@@ -34,14 +36,14 @@ body {
 @media (min-width: 650px) {
   .App {
     width: 1000px;
-    height: 500px;
+    height: 600px;
   }
 }
 
 @media (max-width: 650px) {
   .App {
     width: 80vw;
-    height: 80vh;
+    height: 90vh;
   }
 }
 
@@ -56,7 +58,7 @@ body {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  padding: 10px 10px;
+  /* padding: 10px 10px; */
   font-size: 18px;
   white-space: nowrap;
   width: 100px;

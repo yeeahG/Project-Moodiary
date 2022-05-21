@@ -26,10 +26,10 @@ const Header = ({headText, leftChild, rightChild}) => {
     <MyButton text={'<'} onClick={decreaseMonth}/>
     {headText} 
     <MyButton text={'>'} onClick={increaseMonth}/>
-  */}
-  {leftChild}
-  {headText}
-  {rightChild}
+    */}
+    {leftChild}
+    <h3 className='header__text'>{headText}</h3>
+    {rightChild}
   </div>
   )
 }

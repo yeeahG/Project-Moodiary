@@ -1,7 +1,8 @@
 .header__container {
   display: flex;
-  height: 30px;
-  border: 1px solid black;
+  height: 45px;
+  border-top: 2px solid #F95700;
+  border-bottom: 2px solid #F95700;
   padding: 5px 0;
   align-items: center;
 }
@@ -10,15 +11,22 @@
   display: flex;
 }
 
-.header__container .head_text {
+.header__container .header__text {
   width: 50%;
   font-size: 20px;
+  /* color: #F95700; */
   justify-content: center;
+
+  font-family: 'Rubik Mono One', sans-serif;
+  color: transparent;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: #F95700;
 }
 
 .header__container .head_btn_left {
   width: 25%;
   justify-content: start;
+  border: 1px solid #F95700;
 }
 
 .header__container .head_btn_right {

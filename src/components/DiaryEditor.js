@@ -44,6 +44,7 @@ const DiaryEditor = () => {
         <Header 
           headText={'Write New Moo'}
           leftChild={<MyButton text={'<'} onClick={() => navigate(-1)}/>}
+          rightChild={<MyButton text={'>'} onClick={() => navigate(-1)}/>}
         />
         
         <div>

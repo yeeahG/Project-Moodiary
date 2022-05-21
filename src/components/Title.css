@@ -1,28 +1,38 @@
 .tile {
     display: flex;
+    margin-bottom: 100px;
 }
 
 
 .title .logo {
     position: absolute;
     width: 200px;
-    left: 12%;
-    top: 22%;
+    left: 15%;
+    top: 12%;
 }
 
 .title__name {
     color: white;
-	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: black;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: #F95700;
 }
 
 @media (max-width: 680px) {
     .title .logo {
-        width: 140px;
+        width: 130px;
+        left: 10%;
     }
 }
+
+@media (max-width: 680px) {
+    .title .logo {
+        width: 130px;
+        left: 10%;
+    }
+}
+
 @media (min-width: 1000px) {
     .title .logo {
-        left: 26%;
+        left: 24%;
     }
 }

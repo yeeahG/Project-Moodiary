@@ -1,9 +1,9 @@
 .home__container {
     border-radius: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     justify-content: center;
     align-items: center;
 
-    width: 400px;
+    width: 40vw;
     margin: 0 auto;
 }
