@@ -65,7 +65,6 @@ const Home = () => {
 
 
       <div className='home__container'>
-        List
         <DiaryList diaryList={data}/>
       </div>
 

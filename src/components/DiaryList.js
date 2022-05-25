@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import ControlMenu from './ControlMenu';
 import MyButton from './MyButton';
@@ -59,10 +59,37 @@ const DiaryList = ( {diaryList}) => {
         return sortedList;
     }
 
+
+    //React scroll
+    const boxRef = useRef(null);
+    const [ScrollY, setScrollY] = useState(0);
+    const [ScrollActive, setScrollActive] = useState(false);
+  
+    function logit() {
+      setScrollY(boxRef.current.scrollTop);
+      if (boxRef.current.scrollTop > 5) {
+        setScrollActive(true);
+      } else {
+        setScrollActive(false);
+      }
+    }
+  
+    useEffect(() => {
+      function watchScroll() {
+        boxRef.current.addEventListener("scroll", logit);
+      }
+      watchScroll();
+      return () => {
+        boxRef.current.removeEventListener("scroll", logit);
+      };
+    });
+
   return (
     <div className='list__container'>
 
-        <div className='menu__wrapper'>
+        <div className={ScrollActive ? 'menu__wrapper fixed' : 'menu__wrapper'}>
+        {ScrollActive ?
+        <>
             <div className='left__col'>
                 <ControlMenu 
                     value={sortType} 
@@ -82,14 +109,40 @@ const DiaryList = ( {diaryList}) => {
                     onClick={() => navigate("/new")} 
                 />
             </div>
+            </>
+            : " "
+            }
+{/* 
+            <div className='left__col'>
+                <ControlMenu 
+                    value={sortType} 
+                    onChange={setSortType}
+                    optionList={sortOptionList}
+                />
+                <ControlMenu 
+                    value={filter}
+                    onChange={setFilter}
+                    optionList={filterOptionList}
+                />
+            </div>
+            <div className='right__col'>
+                <MyButton 
+                    type={'positive'} 
+                    text={'Write new Moo'} 
+                    onClick={() => navigate("/new")} 
+                />
+            </div> */}
         </div>
 
 
+        <div className='boxInner' ref={boxRef}>
+            {getProcessedDiaryList().map((it) => 
+                /* <div key={it.id}>{it.content} {it.emotion}</div>*/
+                <DiaryItem key={it.id} {...it} 
+                className='boxInner' ref={boxRef}/>
+            )}
 
-        {getProcessedDiaryList().map((it) => 
-            /* <div key={it.id}>{it.content} {it.emotion}</div>*/
-            <DiaryItem key={it.id} {...it} />
-        )}
+        </div>
     </div>
   )
 };
