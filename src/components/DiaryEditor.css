@@ -22,3 +22,18 @@
     grid-template-columns: repeat(5, auto);
     gap: 2%;
 }
+
+/*Text area*/
+.editor__container textarea {
+    /* font-family: ; */
+    font-size: 20px;
+    box-sizing: border-box;
+    width: 60%;
+    min-height: 100px;
+    resize: vertical; /*가로로 늘릴 수없게 지정*/
+    border: none;
+    /* border-radius: 5px; */
+    background-color: transparent;
+    padding: 20px;
+    border-top: 2px solid #F95700;
+}

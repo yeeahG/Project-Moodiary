@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import MyButton from './MyButton'
@@ -50,6 +50,11 @@ const DiaryEditor = () => {
       setEmotion(emotion);
     }
 
+    //일기저장
+    const [content, setContent] = useState("");
+    //내용을 안적으면 저장이 안되게 하는 기능을 위해
+    const contentRef = useRef();
+
     return (
       <div className='editor__container'>
         <Header 
@@ -85,6 +90,19 @@ const DiaryEditor = () => {
                   ))}
               </div>
           </section>
+
+          <section>
+            <h4>Today</h4>
+            <div className='input__box text__wrapper'>
+              <textarea 
+                placeholder='What about your day?'
+                ref={contentRef}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              />
+            </div>
+          </section>
+
         </div>
   
       </div>
