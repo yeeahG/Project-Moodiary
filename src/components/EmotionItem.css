@@ -1,0 +1,56 @@
+.emotion_item_container {
+    cursor: pointer;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emotion_item_container img {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.emotion_item_container span {
+    font-size: 18px;
+}
+
+/*emotion 클릭*/
+.EmotionItem_off {
+    background-color: transparent;
+}
+
+
+
+.EmotionItem_on_1 {
+    border-radius: 5px;
+    background-color: #fd565f;
+    color: white;
+}
+
+.EmotionItem_on_2 {
+    border-radius: 5px;
+    background-color: #fd8446;
+    color: white;
+}
+
+.EmotionItem_on_3 {
+    border-radius: 5px;
+    background-color: #fdce17;
+    color: white;
+}
+
+.EmotionItem_on_4 {
+    border-radius: 5px;
+    background-color: #9dd772;
+    color: white;
+}
+
+.EmotionItem_on_5 {
+    border-radius: 5px;
+    background-color: #64c964;
+    color: white;
+}

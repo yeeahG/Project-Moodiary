@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import MyButton from './MyButton'
+import EmotionItem from './EmotionItem'
 import './DiaryEditor.css'
 
 //calender에 오늘날짜 고정
@@ -11,25 +12,29 @@ const getStringDate = (date) => {
 
 const emotionList = [
     {
-        emotion_id: 1,
-        emotion_img: process.env.PUBLIC_URL + `/images/emotion1.png`,
-        emotion_descript: '완전 나쁨',
-    },    {
-        emotion_id: 2,
-        emotion_img: process.env.PUBLIC_URL + `/images/emotion2.png`,
-        emotion_descript: '나쁨',
-    },    {
-        emotion_id: 3,
-        emotion_img: process.env.PUBLIC_URL + `/images/emotion3.png`,
-        emotion_descript: '그냥저냥',
-    },    {
-        emotion_id: 4,
-        emotion_img: process.env.PUBLIC_URL + `/images/emotion4.png`,
-        emotion_descript: '좋음',
-    },    {
-        emotion_id: 5,
-        emotion_img: process.env.PUBLIC_URL + `/images/emotion5.png`,
-        emotion_descript: '너무 좋음',
+      emotion_id: 1,
+      emotion_img: process.env.PUBLIC_URL + `/images/emotion1.png`,
+      emotion_descript: '완전 나쁨',
+    },
+    {
+      emotion_id: 2,
+      emotion_img: process.env.PUBLIC_URL + `/images/emotion2.png`,
+      emotion_descript: '나쁨',
+    },
+    {
+      emotion_id: 3,
+      emotion_img: process.env.PUBLIC_URL + `/images/emotion3.png`,
+      emotion_descript: '그냥저냥',
+    },
+    {
+      emotion_id: 4,
+      emotion_img: process.env.PUBLIC_URL + `/images/emotion4.png`,
+      emotion_descript: '좋음',
+    },
+    {
+      emotion_id: 5,
+      emotion_img: process.env.PUBLIC_URL + `/images/emotion5.png`,
+      emotion_descript: '너무 좋음',
     },
 ]
 
@@ -38,7 +43,13 @@ const DiaryEditor = () => {
 
     console.log(getStringDate(new Date()));
     const [date, setDate] = useState(getStringDate(new Date()));
-  
+    const [emotion, setEmotion] = useState(3); 
+    //그냥저냥 감정을 기본으로 설정
+    //emotion을 클릭했을 때 state를 변경하게
+    const handleClickEmote = (emotion) => {
+      setEmotion(emotion);
+    }
+
     return (
       <div className='editor__container'>
         <Header 
@@ -63,9 +74,14 @@ const DiaryEditor = () => {
 
           <section>
               <h4>Today Moo</h4>
-              <div className='input__box__emotion__list__wrapper'>
+              <div className='input__box emotion__list__wrapper'>
                   {emotionList.map((it) => (
-                  <div key={it.emotion_id}>{it.emotion_descript}</div>
+                  // <div key={it.emotion_id}>{it.emotion_descript}</div>
+                  <EmotionItem 
+                    key={it.emotion_id} {...it} 
+                    onClick={handleClickEmote}
+                    isSelected={it.emotion_id === emotion}
+                  />
                   ))}
               </div>
           </section>

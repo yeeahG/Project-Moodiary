@@ -61,32 +61,32 @@ const DiaryList = ( {diaryList}) => {
 
 
     //React scroll
-    const boxRef = useRef(null);
-    const [ScrollY, setScrollY] = useState(0);
-    const [ScrollActive, setScrollActive] = useState(false);
+    // const boxRef = useRef(null);
+    // const [ScrollY, setScrollY] = useState(0);
+    // const [ScrollActive, setScrollActive] = useState(false);
   
-    function logit() {
-      setScrollY(boxRef.current.scrollTop);
-      if (boxRef.current.scrollTop > 5) {
-        setScrollActive(true);
-      } else {
-        setScrollActive(false);
-      }
-    }
+    // function logit() {
+    //   setScrollY(boxRef.current.scrollTop);
+    //   if (boxRef.current.scrollTop > 5) {
+    //     setScrollActive(true);
+    //   } else {
+    //     setScrollActive(false);
+    //   }
+    // }
   
-    useEffect(() => {
-      function watchScroll() {
-        boxRef.current.addEventListener("scroll", logit);
-      }
-      watchScroll();
-      return () => {
-        boxRef.current.removeEventListener("scroll", logit);
-      };
-    });
+    // useEffect(() => {
+    //   function watchScroll() {
+    //     boxRef.current.addEventListener("scroll", logit);
+    //   }
+    //   watchScroll();
+    //   return () => {
+    //     boxRef.current.removeEventListener("scroll", logit);
+    //   };
+    // });
 
   return (
     <div className='list__container'>
-
+{/* 
         <div className={ScrollActive ? 'menu__wrapper fixed' : 'menu__wrapper'}>
         {ScrollActive ?
         <>
@@ -112,7 +112,9 @@ const DiaryList = ( {diaryList}) => {
             </>
             : " "
             }
-{/* 
+        </div>*/}
+        
+        <div className='menu__wrapper'>
             <div className='left__col'>
                 <ControlMenu 
                     value={sortType} 
@@ -131,15 +133,16 @@ const DiaryList = ( {diaryList}) => {
                     text={'Write new Moo'} 
                     onClick={() => navigate("/new")} 
                 />
-            </div> */}
+            </div> 
         </div>
 
 
-        <div className='boxInner' ref={boxRef}>
+
+        <div className='boxInner' >
             {getProcessedDiaryList().map((it) => 
                 /* <div key={it.id}>{it.content} {it.emotion}</div>*/
                 <DiaryItem key={it.id} {...it} 
-                className='boxInner' ref={boxRef}/>
+                className='boxInner' />
             )}
 
         </div>

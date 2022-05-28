@@ -16,3 +16,9 @@
     padding: 10px 10px;
     cursor: pointer;
 }
+
+.emotion__list__wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 2%;
+}
