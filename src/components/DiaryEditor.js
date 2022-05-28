@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import MyButton from './MyButton'
 import EmotionItem from './EmotionItem'
+import { DiaryDispatchContext } from '../App'
 import './DiaryEditor.css'
 
 //calender에 오늘날짜 고정
@@ -55,6 +56,18 @@ const DiaryEditor = () => {
     //내용을 안적으면 저장이 안되게 하는 기능을 위해
     const contentRef = useRef();
 
+    //App.js에서 작성한 onCreate는 DiaryDispatchContext에 저장되어 있어서 호출
+    const {onCreate} = useContext(DiaryDispatchContext);
+
+    const handleSubmit = () => {
+      if(content.length < 1) {
+        contentRef.current.focus();
+        return;
+      } 
+      onCreate(date, content, emotion);
+      navigate('/', {replace: true}) //현재의 일기 작성페이지로 못 돌아오게
+    }
+
     return (
       <div className='editor__container'>
         <Header 
@@ -100,6 +113,13 @@ const DiaryEditor = () => {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
               />
+            </div>
+          </section>
+
+          <section>
+            <div className='control__box'>
+              <MyButton text={'cancel'} onClick={() => navigate(-1)} />
+              <MyButton text={'confirm'} type={'positive'} onClick={handleSubmit} />
             </div>
           </section>
 
