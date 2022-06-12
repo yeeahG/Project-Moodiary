@@ -1,32 +1,40 @@
-import React from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { DiaryStateContext } from '../App';
+import DiaryEditor from '../components/DiaryEditor';
 
 const Edit = () => {
-    //query string 사용
-    const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const {id} = useParams();
+  console.log(id);
 
-    //id=10으로 query를 꺼냈으니까
-    //http://localhost:3000/edit?id=10
-    const id = searchParams.get('id');
-    console.log(id);
-    //setSearchParams는 searchParams를 바꿀 수 있다는 얘기
+  const diaryList = useContext(DiaryStateContext);
+  console.log(diaryList);
 
-    const navigate = useNavigate();
+  const [originData, setOriginData] = useState();
 
+
+  //id나 diaryList가 변할때만 꺼내오도록
+  useEffect(() => {
+    if(diaryList.length >=1 ) {
+      const targetDiary = diaryList.find((it) => parseInt(it.id) === parseInt(id))
+      console.log(targetDiary);
+
+      //originData에 targetDiary를 저장해서 origindata를 초기화
+      //만약 없는 다이어리를 요청한다면 돌려보내는 함수도 있어야함 (else문)
+      if (targetDiary) {
+        setOriginData(targetDiary);
+      } else {
+        navigate('/', {replace: true});
+      }
+    
+    }
+
+  }, [id, diaryList])
   return (
     <div>
-        Edit
-        <br/>
-        {/*id=10을 who=yeri으로 바꿔라*/}
-        <button onClick={() => setSearchParams({who:'yeri'})}>Query String</button>
+      {originData && <DiaryEditor isEdit={true} originData={originData} /> }
 
-        {/*Page Moving : Home으로 이동시키게 하고 싶음*/}
-        <button onClick={()=>{
-            navigate('/home')
-        }}>HOME</button>
-        <button onClick={() => {
-            navigate(-1)
-        }}>Back</button>
     </div>
   )
 }

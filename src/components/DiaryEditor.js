@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import MyButton from './MyButton'
@@ -39,7 +39,7 @@ const emotionList = [
     },
 ]
 
-const DiaryEditor = () => {
+const DiaryEditor = ({isEdit, originData}) => {
     const navigate = useNavigate();
 
     console.log(getStringDate(new Date()));
@@ -57,21 +57,38 @@ const DiaryEditor = () => {
     const contentRef = useRef();
 
     //App.js에서 작성한 onCreate는 DiaryDispatchContext에 저장되어 있어서 호출
-    const {onCreate} = useContext(DiaryDispatchContext);
+    const {onCreate, onEdit} = useContext(DiaryDispatchContext);
 
     const handleSubmit = () => {
       if(content.length < 1) {
         contentRef.current.focus();
         return;
       } 
-      onCreate(date, content, emotion);
+
+      //edit부분
+      if(window.confirm(isEdit? "일기를 수정할까요?" : "새로운 일기를 작성할래요?")){
+        if(!isEdit) {
+          onCreate(date, content, emotion);
+        } else {
+          onEdit(originData.id, date, content, emotion)
+        }
+      }
       navigate('/', {replace: true}) //현재의 일기 작성페이지로 못 돌아오게
     }
+
+    //Edit 부분
+    useEffect(() => {
+      if(isEdit) {
+        setDate(getStringDate(new Date(parseInt(originData.date))));
+        setEmotion(originData.emotion);
+        setContent(originData.content);
+      }
+    }, [isEdit, originData])
 
     return (
       <div className='editor__container'>
         <Header 
-          headText={'Write New Moo'}
+          headText={isEdit ? 'Edit My Moo' : 'Write New Moo'}
           leftChild={<MyButton text={'<'} onClick={() => navigate(-1)}/>}
           rightChild={<MyButton text={'>'} onClick={() => navigate(-1)}/>}
         />
